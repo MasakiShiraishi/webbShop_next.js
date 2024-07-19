@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../lib/definitions';
 
+// for the category
 interface ProductsListProps{
           category?:string;
 }
@@ -14,7 +15,7 @@ export default function ProductsList({category}: ProductsListProps) {
                     const fetchProducts = async () => {
                               try {
                                         console.log('Fetching products...');
-                                        // check to category
+                                        // check to the category
                                         const url = category ? `/api/products?category=${category}` : '/api/products';
                                         const res = await fetch(url);
                                         if (!res.ok) {
