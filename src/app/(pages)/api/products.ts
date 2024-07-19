@@ -7,9 +7,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   await connectMongo(); 
   console.log('MongoDB connected');
 
+  // try {
+  //   const products = await ProductModel.find({});
+  //   console.log('Transactions fetched:', products);
+  //   res.status(200).json({ products });
+  // } catch (e) {
+  //   console.error('Error fetching products:', e);
+  //   res.status(500).json({ error: 'Failed to fetch products' });
+  // }
+  const { category } = req.query;
+  console.log('Category:', category);
   try {
-    const products = await ProductModel.find({});
-    console.log('Transactions fetched:', products);
+    let products;
+
+    if (category && category !== 'undefined') {
+      // Filter products by category
+      products = await ProductModel.find({ category });
+    } else {
+      // Fetch all products if no category is specified
+      products = await ProductModel.find({});
+    }
+
+    console.log('Products fetched:', products);
     res.status(200).json({ products });
   } catch (e) {
     console.error('Error fetching products:', e);

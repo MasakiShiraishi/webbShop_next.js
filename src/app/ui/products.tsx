@@ -2,8 +2,11 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../lib/definitions';
 
+interface ProductsListProps{
+          category?:string;
+}
 
-export default function ProductsList() {
+export default function ProductsList({category}: ProductsListProps) {
           const [products, setProducts] = useState<Product[]>([]);
           const [isMobile, setIsMobile] = useState(false);
 
@@ -11,7 +14,9 @@ export default function ProductsList() {
                     const fetchProducts = async () => {
                               try {
                                         console.log('Fetching products...');
-                                        const res = await fetch('/api/products');
+                                        // check to category
+                                        const url = category ? `/api/products?category=${category}` : '/api/products';
+                                        const res = await fetch(url);
                                         if (!res.ok) {
                                                   throw new Error('Failed to fetch products');
                                         }
@@ -24,7 +29,7 @@ export default function ProductsList() {
                     };
 
                     fetchProducts();
-          }, []);
+          }, [category]);
           // check for display size
           useEffect(() => {
                     const handleResize = () => {
