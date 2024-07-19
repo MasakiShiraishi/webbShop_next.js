@@ -7,9 +7,24 @@ export async function GET(req: NextRequest, res: NextResponse) {
   await connectMongo(); 
   console.log('MongoDB connected');
  
+  // Extract the category from the query parameters
+  const category = req.nextUrl.searchParams.get('category');
+  // Log the category to verify it's being received correctly
+  console.log('Category:', category); 
+
   try {
-    const products = await ProductModel.find(); 
-    console.log('Retrieved products:', products);
+    let products;
+    
+    if(category && category !== 'undefined'){
+      // Filter products by category
+      products = await ProductModel.find({category});
+    }else{
+      // Fetch all products if no category is specified
+      products = await ProductModel.find({}); 
+    } 
+
+    // -----no change below to be category-----
+    // console.log('Retrieved products:', products);
     return NextResponse.json({ products });
   } catch (error) {
     console.error('Error fetching products:', error); 
