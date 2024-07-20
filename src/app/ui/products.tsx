@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../lib/definitions';
 
+// for the category
 interface ProductsListProps{
           category?:string;
 }
@@ -14,7 +15,7 @@ export default function ProductsList({category}: ProductsListProps) {
                     const fetchProducts = async () => {
                               try {
                                         console.log('Fetching products...');
-                                        // check to category
+                                        // check to the category
                                         const url = category ? `/api/products?category=${category}` : '/api/products';
                                         const res = await fetch(url);
                                         if (!res.ok) {
@@ -50,8 +51,7 @@ export default function ProductsList({category}: ProductsListProps) {
 
           return (
                     <div>
-                              <h2 className="text-3xl font-bold ml-6 mb-6">Lista</h2>
-                              <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols3 xl:grid-cols-4 p-4">
+                              <ul className="grid grid-cols-1 gap-4 mt-5 md:grid-cols-2 lg:grid-cols3 xl:grid-cols-4 p-4">
                                         {products.map((product, index) => (
                                                   <li className="list-none border border-black hover:border-cyan-500 hover:border-4 rounded-lg m-4" key={index}>
                                                             <p className="text-xl font-bold p-2 ml-6">{product.title}</p>
