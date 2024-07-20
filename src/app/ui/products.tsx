@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { Product } from '../lib/definitions';
+import ArrowToHome from './ArrowToHome';
 
 // for the category
 interface ProductsListProps{
@@ -50,8 +51,10 @@ export default function ProductsList({category}: ProductsListProps) {
           };
 
           return (
+                    <>
+                    <ArrowToHome/> 
                     <div>
-                              <ul className="grid grid-cols-1 gap-4 mt-5 md:grid-cols-2 lg:grid-cols3 xl:grid-cols-4 p-4">
+                              <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols3 xl:grid-cols-4 p-4">
                                         {products.map((product, index) => (
                                                   <li className="list-none border border-black hover:border-cyan-500 hover:border-4 rounded-lg m-4" key={index}>
                                                             <p className="text-xl font-bold p-2 ml-6">{product.title}</p>
@@ -72,6 +75,7 @@ export default function ProductsList({category}: ProductsListProps) {
                                         ))}
                               </ul>
                     </div>
+                    </>
           );
 }
 
