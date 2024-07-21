@@ -2,17 +2,28 @@
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useState } from 'react';
+import Cart from './cart';
 
 export default function Header() {
           const [isMenuOpen, setIsMenuOpen] = useState(false);
+          const [isCartOpen, setIsCartOpen] = useState(false);
 
           const toggleMenu = () => {
                     setIsMenuOpen(!isMenuOpen);
           };
 
+          const toggleCart = () => {
+                    setIsCartOpen(!isCartOpen);
+          };
+
           const closeMenu = () =>{
                     setIsMenuOpen(false);
           };
+
+          const closeCart = () =>{
+                    setIsCartOpen(false);
+          };
+
 
           return (
                     <header className="bg-neutral-100">
@@ -20,10 +31,11 @@ export default function Header() {
                                         <Bars3Icon className="h-12 w-11 cursor-pointer" onClick={toggleMenu} />
                                         <img className="ml-2 h-12 w-28" src="/webbshop.png" alt="Webb Shop" />
                                         <div className="ml-auto">
-                                                  <ShoppingCartIcon className="h-12 w-11" />
+                                                  <ShoppingCartIcon className="h-12 w-11" onClick={toggleCart}/>
                                         </div>
                               </div>
-
+                               {/* call from cart.tsx */}
+                              <Cart isOpen={isCartOpen} onClose={closeCart} /> 
                               {isMenuOpen && (
                                         <>
                                         <div className="fixed inset-0 bg-black opacity-70 z-40"></div>
