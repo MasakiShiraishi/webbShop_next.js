@@ -11,3 +11,7 @@ export type Product = {
     count: number;
   };
 };
+
+export type CartItem = Product & {
+  quantity: number; 
+};
