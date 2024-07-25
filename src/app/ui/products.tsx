@@ -1,6 +1,6 @@
 'use client'
 import React,{ useCallback, useEffect, useState } from 'react';
-import { Product } from '../lib/definitions';
+import { CartItem, Product } from '../lib/definitions';
 import ArrowToHome from './ArrowToHome';
 
 // for the category
