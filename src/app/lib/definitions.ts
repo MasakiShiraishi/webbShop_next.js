@@ -15,3 +15,19 @@ export type Product = {
 export type CartItem = Product & {
   quantity: number; 
 };
+
+export type OrderItem = {
+  id: number;
+  title: string;
+  quantity: number;
+  total: number;
+};
+
+export type Order = {
+  items: OrderItem[];
+  name: string;
+  address: string;
+  email: string;  
+  deliveryOption: number;
+};
+
