@@ -23,7 +23,9 @@ export default function Header() {
     <header className="bg-neutral-100">
       <div className="flex py-4 px-4">
         <Bars3Icon className="h-12 w-11 cursor-pointer" onClick={toggleMenu} />
+        <Link href="/">
         <img className="ml-2 h-12 w-28" src="/webbshop.png" alt="Webb Shop" />
+        </Link>
         <div className="ml-auto relative">
           <ShoppingCartIcon className="h-12 w-11" onClick={openCart} />
           {/* Display item count */}
