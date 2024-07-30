@@ -69,6 +69,9 @@ export default function Header() {
               <Link href="/products/womens-clothing">
                 <li onClick={closeMenu}>Women&apos;s clothing</li>
               </Link>
+              <Link href="/order/customersOrders">
+                <li onClick={closeMenu}>Order&apos;s list</li>
+              </Link>
             </ul>
           </div>
         </>
