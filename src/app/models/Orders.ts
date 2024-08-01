@@ -1,6 +1,6 @@
 
 import mongoose, { Schema, Document } from 'mongoose';
-import { Order, OrderItem } from './definitions';
+import { Order, OrderItem } from '../lib/definitions';
 
 export interface IOrder extends Document {
   items: OrderItem[];
