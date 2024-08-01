@@ -24,15 +24,15 @@ export default function Header() {
       <div className="flex py-4 px-4">
         <Bars3Icon className="h-12 w-11 cursor-pointer" onClick={toggleMenu} />
         <Link href="/">
-        <img className="ml-2 h-12 w-28" src="/webbshop.png" alt="Webb Shop" />
+          <img className="ml-2 h-12 w-28" src="/webbshop.png" alt="Webb Shop" />
         </Link>
         <div className="ml-auto relative">
           <ShoppingCartIcon className="h-12 w-11" onClick={openCart} />
           {/* Display item count */}
           {totalItems > 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-            {totalItems}
-          </span>
+              {totalItems}
+            </span>
           )}
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function Header() {
               <Link href="/products/womens-clothing">
                 <li onClick={closeMenu}>Women&apos;s clothing</li>
               </Link>
-              <Link href="/order/customersOrders">
+              <Link href="/login">
                 <li onClick={closeMenu}>Order&apos;s list</li>
               </Link>
             </ul>
