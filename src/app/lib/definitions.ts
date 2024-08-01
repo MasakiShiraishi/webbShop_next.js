@@ -31,3 +31,7 @@ export type Order = {
   deliveryOption: number;
 };
 
+export type User = {
+  username: string;
+  password: string;
+}
