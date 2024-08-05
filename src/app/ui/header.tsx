@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Cart from './cart';
 import { useCart } from '../lib/CartContext';
+import SearchMoter from './searchMoter';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,13 +22,18 @@ export default function Header() {
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <header className="bg-neutral-100">
-      <div className="flex py-4 px-4">
-        <Bars3Icon className="h-12 w-11 cursor-pointer" onClick={toggleMenu} />
+      <div className="flex items-center justify-center py-4 px-4">
+        <Bars3Icon className="h-10 w-10  cursor-pointer" onClick={toggleMenu} />
         <Link href="/">
-          <img className="ml-2 h-12 w-28" src="/webbshop.png" alt="Webb Shop" />
+          <img className="h-10 w-auto ml-4" src="/webbshop.png" alt="Webb Shop" />
         </Link>
-        <div className="ml-auto relative">
-          <ShoppingCartIcon className="h-12 w-11" onClick={openCart} />
+        <div className="flex-auto ms:flex ms:justify-center items-center mx-4">
+          <div className="relative">
+            <SearchMoter/>
+          </div>
+        </div>
+        <div className="relative ml-4">
+          <ShoppingCartIcon className="h-8 w-8 cursor-pointer" onClick={openCart} />
           {/* Display item count */}
           {totalItems > 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
