@@ -54,7 +54,8 @@ export default function ProductsList({ category, addToCart }: ProductsListProps)
           const handleAddToCartClick = useCallback((product: Product) => {
             console.log('Adding to cart:', product);
             // console.log(typeof addToCart);
-            addToCart(product);
+            const cartItem: CartItem = { ...product, quantity: 1 };
+            addToCart(cartItem);
             // console.log(typeof addToCart);
           }, [addToCart]);
 
