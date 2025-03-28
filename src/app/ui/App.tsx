@@ -4,7 +4,7 @@ import Cart from './cart';
 
 
 const CartWithProps: React.FC = () => {
-  const { isOpen, closeCart, cartItems, removeFromCart } = useCart();
+  const { isOpen, closeCart, cartItems, removeFromCart, updateQuantity } = useCart();
 
   return (
     <Cart
@@ -12,6 +12,7 @@ const CartWithProps: React.FC = () => {
       onClose={closeCart}
       cartItems={cartItems}
       removeFromCart={removeFromCart}
+      updateQuantity={updateQuantity}
     />
   );
 }
