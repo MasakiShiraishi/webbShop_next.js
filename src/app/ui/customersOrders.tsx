@@ -200,7 +200,7 @@ export default function CustomersOrdersList() {
   return (
     <div>
       <div className="flex justify-between m-6">
-        <h2 className="text-3xl text-center font-bold ">Order's list</h2>
+        <h2 className="text-3xl text-center font-bold ">Order&apos;s list</h2>
         {/* added log out button */}
         <LogOut />
       </div>
