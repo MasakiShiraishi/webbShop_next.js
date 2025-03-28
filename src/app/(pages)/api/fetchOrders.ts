@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import connectMongo from '../../lib/mongodb';
-import OrderModel from '@/app/lib/Orders';
+import OrderModel from '@/app/models/Orders';
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   console.log('API Endpoint Hit');
