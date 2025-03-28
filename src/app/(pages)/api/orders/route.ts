@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectMongo from '@/app/lib/mongodb';
-import OrderModel from '@/app/lib/Orders';
+import OrderModel from '@/app/models/Orders';
+
 
 
 export async function POST(req: NextRequest, res: NextResponse) {

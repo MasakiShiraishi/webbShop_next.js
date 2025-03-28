@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from "react";
 
-export default function sendOrder(){
+export default function SendOrder(){
           useEffect (() => {
                     if (window.location.pathname === '/order/sendOrder') {
                        const timer = setTimeout(() => {
